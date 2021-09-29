@@ -1,0 +1,51 @@
+sinclude $(GENERAL_RULES)/mplib$(WM_MPLIB)
+sinclude $(RULES)/mplib$(WM_MPLIB)
+
+EXE_INC = \
+    -I. \
+    -I../shared/VoF.mod \
+    -I../shared/interFoam.mod \
+    -ImultiphaseMixture/lnInclude \
+    -I$(LIB_SRC)/transportModels \
+    -I$(LIB_SRC)/transportModels/incompressible/lnInclude \
+    -I$(LIB_SRC)/transportModels/interfaceProperties/lnInclude \
+    -I$(LIB_SRC)/TurbulenceModels/turbulenceModels/lnInclude \
+    -I$(LIB_SRC)/TurbulenceModels/incompressible/lnInclude \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/dynamicFvMesh/lnInclude \
+    -I$(LIB_SRC)/meshTools/lnInclude \
+    -I$(LIB_SRC)/sampling/lnInclude \
+    -I../rheolibs/constitutiveEquations/lnInclude \
+    -I../rheolibs/gaussDefCmpwConvectionScheme/lnInclude \
+    -I../rheolibs/boundaryConditions/lnInclude \
+    -I../rheolibs/postProcessing/postProcUtils/lnInclude \
+    -I../rheolibs/fvmb/lnInclude \
+    -I../rheolibs/sparseMatrixSolvers/lnInclude \
+    -isystem$(EIGEN_RHEO) \
+    -isystem$(PETSC_DIR)/$(PETSC_ARCH)/include \
+    -isystem$(PETSC_DIR)/include \
+    $(PFLAGS) $(PINC)
+
+
+EXE_LIBS = \
+    -L$(FOAM_USER_LIBBIN) -lmultiFluidInterFoam \
+    -linterfaceProperties \
+    -lincompressibleTransportModels \
+    -lturbulenceModels \
+    -lincompressibleTurbulenceModels \
+    -lfiniteVolume \
+    -ldynamicFvMesh \
+    -lfvOptions \
+    -lmeshTools \
+    -lsampling \
+    -L$(FOAM_USER_LIBBIN) -lconstitutiveEquations \
+    -L$(FOAM_USER_LIBBIN) -lgaussDefCmpwConvectionSchemes \
+    -L$(FOAM_USER_LIBBIN) -lBCRheoTool \
+    -L$(FOAM_USER_LIBBIN) -lpostProcessingRheoTool \
+    -L$(FOAM_USER_LIBBIN) -lfvmb \
+    -L$(FOAM_USER_LIBBIN) -lsparseMatrixSolvers \
+    -L$(PETSC_DIR)/$(PETSC_ARCH)/lib -lHYPRE \
+    -L$(PETSC_DIR)/$(PETSC_ARCH)/lib -lpetsc \
+    $(PLIBS)
+
+
