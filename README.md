@@ -4,7 +4,9 @@
 Description
 ===========
 
-multiFluidInterFoam is a new control volume solver that can be used for the simulation of Newtonian n-phase flows (n>=2), fully accounting for interfacial tension and contact-angle effects for each phase. The multiFluidInterFoam solver modifies certain crucial aspects of the regular multiphaseInterFoam solver provided by OpenFOAM for Newtonian flows, improving its efficiency and robustness, but most importantly improving considerably its accuracy for surface tension driven flows. 
+The multiFluidInterFoam is a new control volume solver that can be used for the simulation of Newtonian n-phase flows (n>=2), fully accounting for interfacial tension and contact-angle effects for each phase. 
+
+The multiFluidInterFoam solver modifies certain crucial aspects of the regular multiphaseInterFoam solver provided by OpenFOAM for Newtonian flows, improving its efficiency and robustness, but most importantly improving considerably its accuracy for surface tension driven flows. 
 
 Citing
 ===========
